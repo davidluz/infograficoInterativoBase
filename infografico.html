@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Infográfico interativo</title>
+        <script src="js/jquery-3.2.1.min.js"></script>  
+<script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>  
+
+<script src="js/main.js"></script>   
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="js/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="js/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css">
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.8.23/themes/smoothness/jquery-ui.css">
+
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    </head>
+    
+    <body>
+    
+    <div id="ri-container">
+
+
+    
+<div id="slider-range-max"></div>
+    	
+    	<div id="ri-header"><div id="slider"></div> </div>
+    	<div id="ri-slider"><img src="imgs/bg1.png"></div>
+    	<div id="ri-page1" class="ri-pages"><img src="imgs/bg1.png"></div>
+    	<div id="ri-page2" class="ri-pages"><img src="imgs/bg1.png"></div>
+    	<div id="ri-page3" class="ri-pages"></div>
+    	<div id="ri-page4" class="ri-pages"></div>
+    	<div id="ri-page5" class="ri-pages"></div>
+    	<div id="ri-page6" class="ri-pages"></div>
+    	<div id="ri-page7" class="ri-pages"></div>
+    	<div id="ri-page8" class="ri-pages"></div>
+    	<div id="ri-page9" class="ri-pages"></div>
+    	<div id="ri-page10" class="ri-pages"></div>
+    	<div id="ri-page11" class="ri-pages"></div>
+    	<div id="ri-page12" class="ri-pages"></div>
+    	<div id="ri-page13" class="ri-pages"></div>
+    	<div id="ri-page14" class="ri-pages">dsadsa</div>
+    	<div id="ri-page15" class="ri-pages">dasdasd</div>
+    	<div id="ri-page16" class="ri-pages">dsadasd</div>
+    		<div id="ri-page16">dshaduhasd.sadljasldjasd
+    		dsajdhasjdhjsahdjsahd]<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    			<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>dsadasd
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    			<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>
+    		<br><br><br><br><br><br><br><br><br><br>dsadsa
+
+    		</div>
+    	
+<p>
+  <label for="amount">Donation amount ($50 increments):</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+ 
+   	
+
+    
+    </div>
+
+       
+    </body>
+
+<style>
+#ri-container{
+width: 100%;
+max-width: 1600px;
+}
+
+#ri-container img{
+width: 100%;
+height: auto;
+}
+
+#ri-header {
+background:#db1a1f;
+width:100%;
+height: 10%;
+position:fixed;
+bottom:0;
+left:0;
+
+}
+
+.fixar {
+position:fixed;
+margin-top: 0px !important;
+top: 0px !important;
+}
+
+.ri-pages{
+	
+}
+
+.ui-slider-horizontal {
+    height: .2em;
+    margin-top: .6em;
+    border: none;
+    max-width: 90%;
+    margin-left: 5%;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.3em;
+    margin-left: -.6em;
+    width: 8px;
+}	
+
+</style>
+
+
+
+<script>
+
+$(document).ready(function(){
+$( "#slider" ).slider();
+
+var altura = $(window).height(); 
+var posicaoDoHeader = altura + "px";
+console.log(altura);
+
+$("#ri-header").css("margin-top", posicaoDoHeader);
+	var offset = $('#ri-page1').offset().top;
+var $meuMenu = $('#ri-header');
+$(document).on('scroll', function () {
+    if (offset <= $(window).scrollTop()) {
+        $meuMenu.addClass('fixar');
+    } else {
+        $meuMenu.removeClass('fixar');
+    }
+});
+
+
+$( function() {
+    $( "#slider" ).slider({
+      value:0,
+      min: 0,
+      max: 16,
+      step: 1,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.value );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+  } );
+
+  });
+</script>
+
+</html>
