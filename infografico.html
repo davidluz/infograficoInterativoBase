@@ -113,12 +113,14 @@ top: 0px !important;
     border: none;
     max-width: 90%;
     margin-left: 5%;
+
 }
 
 .ui-slider-horizontal .ui-slider-handle {
     top: -.3em;
     margin-left: -.6em;
     width: 8px;
+    cursor: pointer;
 }	
 
 </style>
@@ -151,15 +153,42 @@ $( function() {
       value:0,
       min: 0,
       max: 16,
-      step: 1,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.value );
-      }
+      step: 4,
     });
-    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+
   } );
 
+
   });
+
+
+
+   $("#slider").on("slidestop", function(event, ui) {
+        var startPos = $("#slider").slider("value");
+       
+       
+        if (startPos == 4) {
+          $('html, body').animate({
+        scrollTop: $("#ri-page2").offset().top
+		}, 1000);
+          positionListener();
+        }
+        if (startPos == 8) {
+          $('html, body').animate({
+        scrollTop: $("#ri-page3").offset().top
+		}, 1000);
+        }
+
+       
+    });
+
+ function positionListener(){
+
+$("#slider").slider("option", "value", 8);
+ }
+
+
+
 </script>
 
 </html>
